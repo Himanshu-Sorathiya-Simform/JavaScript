@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>JavaScript</title>
+	</head>
+	<body>
+		<button onclick="alert('Hello World!')">Inline Click Me</button>
+
+		<button
+			id="internal"
+			onclick="changeTextInternal()">
+			Internal Click Me
+		</button>
+
+		<button
+			id="external"
+			onclick="changeTextExternal()">
+			External Click Me
+		</button>
+
+		<script>
+			function changeTextInternal() {
+				document.getElementById('internal').textContent = 'Hello, JavaScript!';
+			}
+		</script>
+
+		<script src="./1. Ways to integrate JS.js"></script>
+	</body>
+</html>
