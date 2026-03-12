@@ -1,3 +1,4 @@
+// This is used to reverse the string to match real answer.
 function reverse(str) {
 	let ans = '';
 
@@ -8,29 +9,15 @@ function reverse(str) {
 	return ans;
 }
 
+// Mapping function based on base
 function mappedValue(n, base) {
-	let map = [
-		'0',
-		'1',
-		'2',
-		'3',
-		'4',
-		'5',
-		'6',
-		'7',
-		'8',
-		'9',
-		'a',
-		'b',
-		'c',
-		'd',
-		'e',
-		'f',
+	let map = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
 	];
 
 	return map[n % base];
 }
 
+// Function to convert any Positive Decimal to any base (2 - 36)
 function conversion(n, base) {
 	if (n < 0) console.log('sorry, i dont know answer for this yet');
 
