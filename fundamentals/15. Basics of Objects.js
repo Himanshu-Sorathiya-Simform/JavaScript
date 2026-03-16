@@ -32,3 +32,15 @@ console.log(users[2]?.name);
 
 let city = users?.[5].address?.city ?? 'Unknown';
 console.log(city);
+
+for (let key of Object.keys(person)) {
+	console.log(key);
+}
+
+for (let value of Object.values(person)) {
+	console.log(value);
+}
+
+for (let [key, value] of Object.entries(person)) {
+	console.log(key, value);
+}

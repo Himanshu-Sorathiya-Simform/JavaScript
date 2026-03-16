@@ -26,3 +26,15 @@ console.log(fruits.includes('Peach')); // false
 
 console.log(fruits.indexOf('Orange')); // 1
 console.log(fruits.indexOf('Peach')); // -1
+
+for (let fruit of fruits) {
+	console.log(fruit);
+}
+
+for (let char of fruits[0]) {
+	console.log(char);
+}
+
+for (let [index, value] of fruits.entries()) {
+	console.log(index, value);
+}
