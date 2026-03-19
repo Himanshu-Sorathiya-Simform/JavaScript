@@ -24,7 +24,7 @@ function conversion(n, base) {
 	let answer = '';
 
 	while (n != 0) {
-		aer += mappedValue(n, b);
+		answer += mappedValue(n, base);
 
 		n = Math.trunc(n / base);
 	}
