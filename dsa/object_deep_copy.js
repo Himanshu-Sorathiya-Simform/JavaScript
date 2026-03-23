@@ -27,7 +27,7 @@ function doDateMapping(obj) {
 }
 
 function deepCopy(obj) {
-	if (obj === null || obj === undefined || typeof obj !== 'object') return obj;
+	if (obj === null || typeof obj !== 'object') return obj;
 
 	if (Array.isArray(obj)) return doArrayObjectMapping(obj, deepCopy, []);
 	else if (obj instanceof Set) return doSetMapping(obj, deepCopy, new Set());
