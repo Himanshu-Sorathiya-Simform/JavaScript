@@ -1,19 +1,13 @@
 function isPalindrome(str) {
-	let left = 0,
-		right = str.length - 1;
-
-	while (left < right) {
-		if (str[left] != str[right]) return false;
-
-		left++;
-		right--;
-	}
-
-	return true;
+	return str
+		.toLowerCase()
+		.trim()
+		.split('')
+		.every((word, index, og) => word === og.at(-index - 1));
 }
 
 console.log('---------------------------------------');
-console.log('Palindrome')
+console.log('Palindrome');
 console.log('Himanshu : ', isPalindrome('Himanshu'));
 console.log('aba : ', isPalindrome('aba'));
 console.log('abba : ', isPalindrome('abba'));
