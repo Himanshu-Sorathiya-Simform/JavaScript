@@ -7,20 +7,13 @@ function deepCompare(obj1, obj2) {
 		return deepCompare([...obj1.values()], [...obj2.values()]);
 	} else if (obj1 instanceof Date && obj2 instanceof Date)
 		return deepCompare(obj1.getTime(), obj2.getTime());
-	else if (obj1 instanceof Array && obj2 instanceof Array) {
-		if (obj1.length !== obj2.length) return false;
-
-		for (let i = 0; i < obj1.length; i++) {
-			if (!deepCompare(obj1[i], obj2[i])) return false;
-		}
-
-		return true;
-	} else if (obj1 instanceof Object && obj2 instanceof Object) {
-		const o1 = Object.entries(obj1);
-		const o2 = Object.entries(obj2);
-
-		return o1.size !== o2.size ? false : deepCompare(o1, o2);
-	}
+	else if (Array.isArray(obj1) && Array.isArray(obj2)) {
+		return (
+			obj1.length === obj2.length &&
+			obj1.every((item, i) => deepCompare(item, obj2[i]))
+		);
+	} else if (obj1 instanceof Object && obj2 instanceof Object)
+		return deepCompare(Object.entries(obj1), Object.entries(obj2));
 
 	return true;
 }
