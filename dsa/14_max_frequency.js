@@ -1,7 +1,7 @@
 function maxFrequency(str) {
 	const map = new Map();
 
-	for (const character of str.toLowerCase()) {
+	for (const character of str.replace(/\s+/g, '').toLowerCase()) {
 		map.set(character, (map.get(character) || 0) + 1);
 	}
 
