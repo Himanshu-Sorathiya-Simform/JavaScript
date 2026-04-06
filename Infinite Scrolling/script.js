@@ -13,42 +13,41 @@ function createCards(num) {
 }
 createCards(20);
 
-// window.addEventListener('scroll', () => {
-// 	if (
-// 		window.pageYOffset >
-// 		(document.body.getBoundingClientRect().height * scrollPoint) / 10
-// 	) {
-// 		createCards(10);
+// Normal scroll event, with each scroll, increase scroll point
+window.addEventListener('scroll', () => {
+	if (
+		window.pageYOffset >
+		(document.body.getBoundingClientRect().height * scrollPoint) / 10
+	) {
+		createCards(10);
 
-// 		scrollPoint = Math.min(9.3, scrollPoint + 0.3);
-// 	}
-// });
+		scrollPoint = Math.min(9.3, scrollPoint + 0.3);
+	}
+});
 
-// setInterval(() => {
-// 	createCards(10);
+// Throttling, every 10s
+setInterval(() => {
+	createCards(10);
 
-// 	scrollPoint = Math.min(9.3, scrollPoint + 0.3);
-// }, 10000);
+	scrollPoint = Math.min(9.3, scrollPoint + 0.3);
+}, 10000);
 
-// button.addEventListener('click', () => {
-// 	createCards(10);
-// });
+// Debounce, top left btn, itll fire after 2s of inactivity
+function debounce(func, delay) {
+	let timer;
 
-// function debounce(func, delay) {
-// 	let timer;
+	return function () {
+		clearTimeout(timer);
+		timer = setTimeout(() => {
+			func();
+		}, delay);
+	};
+}
 
-// 	return function () {
-// 		clearTimeout(timer);
-// 		timer = setTimeout(() => {
-// 			func();
-// 		}, delay);
-// 	};
-// }
+function addCards() {
+	createCards(10);
+}
 
-// function addCards() {
-// 	createCards(10);
-// }
+const debounceCards = debounce(addCards, 2000);
 
-// const debounceCards = debounce(addCards, 5000);
-
-// button.addEventListener('click', debounceCards);
+button.addEventListener('click', debounceCards);

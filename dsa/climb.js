@@ -1,4 +1,3 @@
-const ans = [];
 let count = 0;
 
 function climb(num, ans = []) {
